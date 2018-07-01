@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+  datasource:
+      #url: jdbc:mysql://35.195.99.165:3306/webdevproject?useSSL=false
+      #url: jdbc:mysql://google/webdevproject?cloudSqlInstance=webdevproject-202408:europe-west1:webdevproject&socketFactory=com.google.cloud.sql.mysql.SocketFactory&user=root&password=EAG1kE1ot5wKItOz&useSSL=false
+      #username: root
+      #password: EAG1kE1ot5wKItOz
+      #driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/connectedcars?useSSL=false
+      username: root
+      #password: root
