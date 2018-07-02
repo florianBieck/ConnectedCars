@@ -48,7 +48,7 @@ public class CarService implements ICarService {
     }
 
     @Override
-    public Car createCar(User user, String identifier, String title) {
+    public Car createCar(User user, Integer identifier, String title) {
         Car car = new Car();
         car.setUser(user);
         car.setId(identifier);

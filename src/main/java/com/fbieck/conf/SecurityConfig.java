@@ -26,10 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/privacy", "/impressum",
                         "/css/**", "/font/**", "/img/**", "/js/**", "/scss/**").permitAll()
                 .antMatchers("/registration").anonymous()
-                .antMatchers("/dashboard",
-                        "/mapview", "/routes", "/places", "/mycars",
-                        "/profile",
-                        "/session**").authenticated()
+                .anyRequest().authenticated()
                 .and().formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/login")

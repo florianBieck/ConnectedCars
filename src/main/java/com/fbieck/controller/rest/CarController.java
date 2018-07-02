@@ -3,7 +3,6 @@ package com.fbieck.controller.rest;
 import com.fbieck.auth.FFUserPrincipal;
 import com.fbieck.dto.CarQuote;
 import com.fbieck.entities.Car;
-import com.fbieck.entities.User;
 import com.fbieck.service.car.ICarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -44,7 +43,7 @@ public class CarController {
 
     @PostMapping(value = "/car/create", params = {"identifier", "title"})
     private Car createCar(
-            @RequestParam(value = "identifier") String identifier,
+            @RequestParam(value = "identifier") Integer identifier,
             @RequestParam(value = "title") String title
     ){
         if (SecurityContextHolder.getContext().getAuthentication() != null

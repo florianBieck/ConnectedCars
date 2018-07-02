@@ -1,14 +1,15 @@
 package com.fbieck.entities;
 
+import com.fbieck.entities.carmodel.Model;
+
 import javax.persistence.*;
 
 @Entity
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idcar")
-    private String id;
+    private Integer id;
 
     @Column(name = "title")
     private String title;
@@ -19,15 +20,22 @@ public class Car {
     @Column(name = "latitude")
     private Double latitude;
 
+    @Column(name = "mileage")
+    private Double mileage;
+
+    @OneToOne
+    @JoinColumn(name = "idcarmodel")
+    private Model model;
+
     @OneToOne
     @JoinColumn(name = "iduser")
     private User user;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

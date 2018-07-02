@@ -27,7 +27,7 @@
 
                 <!-- Brand -->
                 <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">
-                    <strong class="blue-text">MDB</strong>
+                    <strong class="blue-text">Connected Cars</strong>
                 </a>
 
                 <!-- Collapse -->
@@ -37,42 +37,47 @@
                 </button>
 
                 <!-- Links -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" motortype="navbarSupportedContent">
 
                     <!-- Left -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link waves-effect" href="#">Home
+                        <li class="nav-item">
+                            <a class="nav-link active waves-effect" href="/">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">About MDB</a>
+                            <a class="nav-link waves-effect" href="/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item d-none d-lg-block">
+                            <a class="nav-link waves-effect" href="/mapview">Maps</a>
+                        </li>
+                        <li class="nav-item dropdown d-lg-none">
+                            <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown">Maps</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/mapview">Location</a>
+                                <a class="dropdown-item" href="/routes">Routes</a>
+                                <a class="dropdown-item" href="/places">Places</a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect" href="https://mdbootstrap.com/getting-started/" target="_blank">Free download</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect" href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank">Free tutorials</a>
+                            <a class="nav-link waves-effect" href="#">Music</a>
                         </li>
                     </ul>
 
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
-                        <li class="nav-item">
-                            <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
-                                <i class="fa fa-facebook"></i>
+                        <li class="navbar-text show-fullname mx-1">
+                        </li>
+                        <li class="nav-item mx-1">
+                            <a href="#" class="nav-link border border-light rounded waves-effect">
+                                <i class="fa fa-user mr-2"></i>My Profile
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded waves-effect"
-                                target="_blank">
-                                <i class="fa fa-github mr-2"></i>MDB GitHub
+                        <li class="nav-item mx-1">
+                            <a href="/mycars"
+                               class="nav-link border border-light round waves-effect bg-primary text-white">
+                                <i class="fa fa-car mr-2"></i>My Cars
                             </a>
                         </li>
                     </ul>
@@ -87,7 +92,7 @@
         <div class="sidebar-fixed position-fixed">
 
             <a class="logo-wrapper waves-effect">
-                <img src="https://mdbootstrap.com/img/logo/mdb-email.png" class="img-fluid" alt="">
+                <img src="/img/logo.png" class="img-fluid" alt="">
             </a>
 
             <div class="list-group list-group-flush">
@@ -152,7 +157,7 @@
                         <!--Card content-->
                         <div class="card-body">
 
-                            <canvas id="myChart"></canvas>
+                            <canvas motortype="myChart"></canvas>
 
                         </div>
 
@@ -176,7 +181,7 @@
                         <!--Card content-->
                         <div class="card-body">
 
-                            <canvas id="pieChart"></canvas>
+                            <canvas motortype="pieChart"></canvas>
 
                         </div>
 
@@ -355,7 +360,7 @@
                         <!--Card content-->
                         <div class="card-body">
 
-                            <canvas id="lineChart"></canvas>
+                            <canvas motortype="lineChart"></canvas>
 
                         </div>
 
@@ -377,7 +382,7 @@
                         <!--Card content-->
                         <div class="card-body">
 
-                            <canvas id="radarChart"></canvas>
+                            <canvas motortype="radarChart"></canvas>
 
                         </div>
 
@@ -399,7 +404,7 @@
                         <!--Card content-->
                         <div class="card-body">
 
-                            <canvas id="doughnutChart"></canvas>
+                            <canvas motortype="doughnutChart"></canvas>
 
                         </div>
 
@@ -428,7 +433,7 @@
                         <div class="card-body">
 
                             <!--Google map-->
-                            <div id="map-container" class="z-depth-1" style="height: 500px"></div>
+                            <div motortype="map-container" class="z-depth-1" style="height: 500px"></div>
 
                         </div>
 
@@ -448,8 +453,9 @@
                         <section>
 
                             <!-- Frame Modal Top Info-->
-                            <div class="modal fade top" id="frameModalTopInfoDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-                                data-backdrop="false">
+                            <div class="modal fade top" motortype="frameModalTopInfoDemo" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true"
+                                 data-backdrop="false">
                                 <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -473,8 +479,9 @@
                             <!-- Frame Modal Bottom Success-->
 
                             <!-- Frame Modal Bottom Success-->
-                            <div class="modal fade bottom" id="frameModalBottomSuccessDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                                aria-hidden="true" data-backdrop="false">
+                            <div class="modal fade bottom" motortype="frameModalBottomSuccessDemo" tabindex="-1"
+                                 role="dialog" aria-labelledby="myModalLabel"
+                                 aria-hidden="true" data-backdrop="false">
                                 <div class="modal-dialog modal-frame modal-bottom modal-notify modal-success" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -498,8 +505,9 @@
                             <!-- Frame Modal Bottom Success-->
 
                             <!-- Side Modal Top Right Success-->
-                            <div class="modal fade right" id="sideModalTRSuccessDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-                                data-backdrop="false">
+                            <div class="modal fade right" motortype="sideModalTRSuccessDemo" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true"
+                                 data-backdrop="false">
                                 <div class="modal-dialog modal-side modal-top-right modal-notify modal-success" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -537,8 +545,9 @@
                             <!-- Side Modal Top Right Success-->
 
                             <!-- Side Modal Top Left Info-->
-                            <div class="modal fade left" id="sideModalTLInfoDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-                                data-backdrop="false">
+                            <div class="modal fade left" motortype="sideModalTLInfoDemo" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true"
+                                 data-backdrop="false">
                                 <div class="modal-dialog modal-side modal-top-left modal-notify modal-info" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -578,8 +587,9 @@
                             <!-- Side Modal Top Left Info-->
 
                             <!-- Side Modal Bottom Right Danger-->
-                            <div class="modal fade right" id="sideModalBRDangerDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-                                data-backdrop="false">
+                            <div class="modal fade right" motortype="sideModalBRDangerDemo" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true"
+                                 data-backdrop="false">
                                 <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-danger" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -627,8 +637,9 @@
                             <!-- Side Modal Bottom Right Danger-->
 
                             <!-- Side Modal Bottom Left Warning-->
-                            <div class="modal fade left" id="sideModalBLWarningDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-                                data-backdrop="false">
+                            <div class="modal fade left" motortype="sideModalBLWarningDemo" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true"
+                                 data-backdrop="false">
                                 <div class="modal-dialog modal-side modal-bottom-left modal-notify modal-warning" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -679,7 +690,8 @@
                             <!-- Side Modal Bottom Left Warning-->
 
                             <!--Modal Form Login with Avatar Demo-->
-                            <div class="modal fade" id="modalLoginAvatarDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal fade" motortype="modalLoginAvatarDemo" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -694,7 +706,8 @@
                                             <h5 class="mt-1 mb-2">Maria Doe</h5>
 
                                             <div class="md-form ml-0 mr-0">
-                                                <input type="password" type="text" id="form1" class="form-control ml-0">
+                                                <input type="password" type="text" motortype="form1"
+                                                       class="form-control ml-0">
                                                 <label for="form1" class="ml-0">Enter password</label>
                                             </div>
 
@@ -712,11 +725,12 @@
                             <!--Modal Form Login with Avatar Demo-->
 
                             <!--Modal: Login / Register Form Demo-->
-                            <div class="modal fade" id="modalLRFormDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal fade" motortype="modalLRFormDemo" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" motortype="exampleModalLabel">Modal title</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -734,7 +748,8 @@
                             <!--Modal: Login / Register Form Demo-->
 
                             <!-- Central Modal Large Info-->
-                            <div class="modal fade" id="centralModalLGInfoDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal fade" motortype="centralModalLGInfoDemo" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-notify modal-info" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -775,7 +790,8 @@
                             <!-- Central Modal Large Info-->
 
                             <!-- Central Modal Fluid Success-->
-                            <div class="modal fade" id="centralModalFluidSuccessDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal fade" motortype="centralModalFluidSuccessDemo" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-fluid modal-notify modal-success" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -839,8 +855,9 @@
                             <!-- Central Modal Fluid Success-->
 
                             <!-- Full Height Modal Right Success Demo-->
-                            <div class="modal fade right" id="fluidModalRightSuccessDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                                aria-hidden="true" data-backdrop="false">
+                            <div class="modal fade right" motortype="fluidModalRightSuccessDemo" tabindex="-1"
+                                 role="dialog" aria-labelledby="myModalLabel"
+                                 aria-hidden="true" data-backdrop="false">
                                 <div class="modal-dialog modal-full-height modal-right modal-notify modal-success" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -904,8 +921,9 @@
                             <!-- Full Height Modal Right Success Demo-->
 
                             <!-- Full Height Modal Left Info Demo-->
-                            <div class="modal fade left" id="fluidModalLeftInfoDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-                                data-backdrop="false">
+                            <div class="modal fade left" motortype="fluidModalLeftInfoDemo" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true"
+                                 data-backdrop="false">
                                 <div class="modal-dialog modal-full-height modal-left modal-notify modal-info" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -969,8 +987,9 @@
                             <!-- Full Height Modal Right Info Demo-->
 
                             <!-- Full Height Modal Top Warning Demo-->
-                            <div class="modal fade top" id="fluidModalTopWarningDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-                                data-backdrop="false">
+                            <div class="modal fade top" motortype="fluidModalTopWarningDemo" tabindex="-1" role="dialog"
+                                 aria-labelledby="myModalLabel" aria-hidden="true"
+                                 data-backdrop="false">
                                 <div class="modal-dialog modal-full-height modal-top modal-notify modal-warning" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -1018,8 +1037,9 @@
                             <!-- Full Height Modal Top Warning Demo-->
 
                             <!-- Full Height Modal Bottom Danger Demo-->
-                            <div class="modal fade bottom" id="fluidModalBottomDangerDemo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                                aria-hidden="true" data-backdrop="false">
+                            <div class="modal fade bottom" motortype="fluidModalBottomDangerDemo" tabindex="-1"
+                                 role="dialog" aria-labelledby="myModalLabel"
+                                 aria-hidden="true" data-backdrop="false">
                                 <div class="modal-dialog modal-full-height modal-bottom modal-notify modal-danger" role="document">
                                     <!--Content-->
                                     <div class="modal-content">
@@ -1176,58 +1196,16 @@
     <footer class="page-footer text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn">
 
         <!--Call to action-->
-        <div class="pt-4">
-            <a class="btn btn-outline-white" href="https://mdbootstrap.com/getting-started/" target="_blank" role="button">Download MDB
-                <i class="fa fa-download ml-2"></i>
-            </a>
-            <a class="btn btn-outline-white" href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank" role="button">Start free tutorial
-                <i class="fa fa-graduation-cap ml-2"></i>
-            </a>
+        <div class="py-4">
+            <a class="btn btn-outline-white" href="#" role="button">Datenschutz</a>
+            <a class="btn btn-outline-white" href="#" role="button">Impressum</a>
         </div>
         <!--/.Call to action-->
-
-        <hr class="my-4">
-
-        <!-- Social icons -->
-        <div class="pb-4">
-            <a href="https://www.facebook.com/mdbootstrap" target="_blank">
-                <i class="fa fa-facebook mr-3"></i>
-            </a>
-
-            <a href="https://twitter.com/MDBootstrap" target="_blank">
-                <i class="fa fa-twitter mr-3"></i>
-            </a>
-
-            <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
-                <i class="fa fa-youtube mr-3"></i>
-            </a>
-
-            <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
-                <i class="fa fa-google-plus mr-3"></i>
-            </a>
-
-            <a href="https://dribbble.com/mdbootstrap" target="_blank">
-                <i class="fa fa-dribbble mr-3"></i>
-            </a>
-
-            <a href="https://pinterest.com/mdbootstrap" target="_blank">
-                <i class="fa fa-pinterest mr-3"></i>
-            </a>
-
-            <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
-                <i class="fa fa-github mr-3"></i>
-            </a>
-
-            <a href="http://codepen.io/mdbootstrap/" target="_blank">
-                <i class="fa fa-codepen mr-3"></i>
-            </a>
-        </div>
-        <!-- Social icons -->
 
         <!--Copyright-->
         <div class="footer-copyright py-3">
             © 2018 Copyright:
-            <a href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank"> MDBootstrap.com </a>
+            <a href="#"> Florian Bieck </a>
         </div>
         <!--/.Copyright-->
 

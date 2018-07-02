@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
+    <title>Connected Cars</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -37,17 +37,17 @@
                 </button>
 
                 <!-- Links -->
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" motortype="navbarSupportedContent">
 
                     <!-- Left -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link waves-effect" href="#">Home
+                            <a class="nav-link waves-effect" href="/">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect" href="#">Dashboard</a>
+                            <a class="nav-link waves-effect" href="/dashboard">Dashboard</a>
                         </li>
                         <li class="nav-item d-none d-lg-block">
                             <a class="nav-link waves-effect" href="/mapview">Maps</a>
@@ -157,7 +157,7 @@
                         </div>
 
                         <!--Card content-->
-                        <div class="card-body" id="tablecarscard">
+                        <div class="card-body" motortype="tablecarscard">
                         </div>
 
                     </div>
@@ -178,7 +178,7 @@
                         </div>
 
                         <!--Card content-->
-                        <div class="card-body" id="usageChartCard">
+                        <div class="card-body" motortype="usageChartCard">
                         </div>
 
                     </div>
@@ -225,7 +225,7 @@
         </div>
 
         <!-- Modals -->
-        <div class="modal fade" id="modalCarCreate" tabindex="-1" role="dialog">
+        <div class="modal fade" motortype="modalCarCreate" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
@@ -237,19 +237,20 @@
                     <div class="modal-body mx-3">
                         <div class="md-form mb-5">
                             <i class="fa fa-car prefix grey-text"></i>
-                            <input type="text" id="formcarcreatetitle" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="formcarcreatetitle">Bezeichnung</label>
+                            <input type="text" motortype="formcarcreatetitle" class="form-control validate">
+                            <label data-error="Formatfehler" data-success=""
+                                   for="formcarcreatetitle">Bezeichnung</label>
                         </div>
 
                         <div class="md-form mb-4">
-                            <i class="fa fa-profile prefix grey-text"></i>
-                            <input type="text" id="formcarcreateid" class="form-control validate">
-                            <label data-error="wrong" data-success="right" for="formcarcreateid">Identifier</label>
+                            <i class="fa fa-user prefix grey-text"></i>
+                            <input type="text" motortype="formcarcreateid" class="form-control validate">
+                            <label data-error="Formatfehler" data-success="" for="formcarcreateid">Identifier</label>
                         </div>
 
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-indigo" id="formcarcreatesubmit">Speichern</button>
+                        <button class="btn btn-indigo" motortype="formcarcreatesubmit">Speichern</button>
                     </div>
                 </div>
             </div>
@@ -261,58 +262,16 @@
     <footer class="page-footer text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn">
 
         <!--Call to action-->
-        <div class="pt-4">
-            <a class="btn btn-outline-white" href="https://mdbootstrap.com/getting-started/" target="_blank" role="button">Download MDB
-                <i class="fa fa-download ml-2"></i>
-            </a>
-            <a class="btn btn-outline-white" href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank" role="button">Start free tutorial
-                <i class="fa fa-graduation-cap ml-2"></i>
-            </a>
+        <div class="py-4">
+            <a class="btn btn-outline-white" href="#" role="button">Datenschutz</a>
+            <a class="btn btn-outline-white" href="#" role="button">Impressum</a>
         </div>
         <!--/.Call to action-->
-
-        <hr class="my-4">
-
-        <!-- Social icons -->
-        <div class="pb-4">
-            <a href="https://www.facebook.com/mdbootstrap" target="_blank">
-                <i class="fa fa-facebook mr-3"></i>
-            </a>
-
-            <a href="https://twitter.com/MDBootstrap" target="_blank">
-                <i class="fa fa-twitter mr-3"></i>
-            </a>
-
-            <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
-                <i class="fa fa-youtube mr-3"></i>
-            </a>
-
-            <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
-                <i class="fa fa-google-plus mr-3"></i>
-            </a>
-
-            <a href="https://dribbble.com/mdbootstrap" target="_blank">
-                <i class="fa fa-dribbble mr-3"></i>
-            </a>
-
-            <a href="https://pinterest.com/mdbootstrap" target="_blank">
-                <i class="fa fa-pinterest mr-3"></i>
-            </a>
-
-            <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
-                <i class="fa fa-github mr-3"></i>
-            </a>
-
-            <a href="http://codepen.io/mdbootstrap/" target="_blank">
-                <i class="fa fa-codepen mr-3"></i>
-            </a>
-        </div>
-        <!-- Social icons -->
 
         <!--Copyright-->
         <div class="footer-copyright py-3">
             © 2018 Copyright:
-            <a href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank"> MDBootstrap.com </a>
+            <a href="#"> Florian Bieck </a>
         </div>
         <!--/.Copyright-->
 
@@ -394,7 +353,7 @@
                     values.push(carqoute.percentage);
                     labels.push(carqoute.car.title);
                 }
-                $("#usageChartCard").html("<canvas id='usageChart'></canvas>");
+                $("#usageChartCard").html("<canvas motortype='usageChart'></canvas>");
                 //pie
                 var ctxStart = document.getElementById("usageChart").getContext('2d');
                 var startChart = new Chart(ctxStart, {

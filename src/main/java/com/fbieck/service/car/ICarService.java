@@ -12,5 +12,5 @@ public interface ICarService {
 
     Iterable<CarQuote> findAllQutesByUser(User user);
 
-    Car createCar(User user, String identifier, String title);
+    Car createCar(User user, Integer identifier, String title);
 }
