@@ -37,7 +37,7 @@
                 </button>
 
                 <!-- Links -->
-                <div class="collapse navbar-collapse" motortype="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <!-- Left -->
                     <ul class="navbar-nav mr-auto">
@@ -157,7 +157,7 @@
                         </div>
 
                         <!--Card content-->
-                        <div class="card-body" motortype="tablecarscard">
+                        <div class="card-body" id="tablecarscard">
                         </div>
 
                     </div>
@@ -178,7 +178,7 @@
                         </div>
 
                         <!--Card content-->
-                        <div class="card-body" motortype="usageChartCard">
+                        <div class="card-body" id="usageChartCard">
                         </div>
 
                     </div>
@@ -225,7 +225,7 @@
         </div>
 
         <!-- Modals -->
-        <div class="modal fade" motortype="modalCarCreate" tabindex="-1" role="dialog">
+        <div class="modal fade" id="modalCarCreate" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
@@ -237,20 +237,20 @@
                     <div class="modal-body mx-3">
                         <div class="md-form mb-5">
                             <i class="fa fa-car prefix grey-text"></i>
-                            <input type="text" motortype="formcarcreatetitle" class="form-control validate">
+                            <input type="text" id="formcarcreatetitle" class="form-control validate">
                             <label data-error="Formatfehler" data-success=""
                                    for="formcarcreatetitle">Bezeichnung</label>
                         </div>
 
                         <div class="md-form mb-4">
                             <i class="fa fa-user prefix grey-text"></i>
-                            <input type="text" motortype="formcarcreateid" class="form-control validate">
+                            <input type="text" id="formcarcreateid" class="form-control validate">
                             <label data-error="Formatfehler" data-success="" for="formcarcreateid">Identifier</label>
                         </div>
 
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <button class="btn btn-indigo" motortype="formcarcreatesubmit">Speichern</button>
+                        <button class="btn btn-indigo" id="formcarcreatesubmit">Speichern</button>
                     </div>
                 </div>
             </div>
@@ -353,7 +353,7 @@
                     values.push(carqoute.percentage);
                     labels.push(carqoute.car.title);
                 }
-                $("#usageChartCard").html("<canvas motortype='usageChart'></canvas>");
+                $("#usageChartCard").html("<canvas id='usageChart'></canvas>");
                 //pie
                 var ctxStart = document.getElementById("usageChart").getContext('2d');
                 var startChart = new Chart(ctxStart, {
