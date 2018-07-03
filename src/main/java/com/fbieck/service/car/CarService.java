@@ -57,4 +57,14 @@ public class CarService implements ICarService {
         car.setLongitude(ThreadLocalRandom.current().nextDouble(-75, 75));
         return carRepository.save(car);
     }
+
+    @Override
+    public Car save(Car car) {
+        return carRepository.save(car);
+    }
+
+    @Override
+    public Car findById(Integer id) {
+        return carRepository.findById(id).orElse(null);
+    }
 }

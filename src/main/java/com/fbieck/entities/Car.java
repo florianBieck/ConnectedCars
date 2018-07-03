@@ -23,6 +23,9 @@ public class Car {
     @Column(name = "mileage")
     private Double mileage;
 
+    @Column(name = "speed")
+    private Double speed;
+
     @OneToOne
     @JoinColumn(name = "idcarmodel")
     private Model model;
@@ -69,5 +72,29 @@ public class Car {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Double getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(Double mileage) {
+        this.mileage = mileage;
+    }
+
+    public Double getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(Double speed) {
+        this.speed = speed;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
     }
 }

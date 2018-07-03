@@ -13,4 +13,8 @@ public interface ICarService {
     Iterable<CarQuote> findAllQutesByUser(User user);
 
     Car createCar(User user, Integer identifier, String title);
+
+    Car save(Car car);
+
+    Car findById(Integer id);
 }

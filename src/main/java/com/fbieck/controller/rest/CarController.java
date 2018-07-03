@@ -56,4 +56,11 @@ public class CarController {
         }
         return null;
     }
+
+    @GetMapping(value = "/car/byid", params = {"id"})
+    private Car findById(
+            @RequestParam(value = "id") Integer identifier
+    ) {
+        return carService.findById(identifier);
+    }
 }
