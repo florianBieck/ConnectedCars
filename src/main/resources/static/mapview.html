@@ -95,7 +95,7 @@
                 <img src="/img/logo.png" class="img-fluid" alt="">
             </a>
 
-            <div class="list-group list-group-flush">
+            <div class="list-group list-group-flush mb-5">
                 <a href="/mapview" class="list-group-item active waves-effect">
                     <i class="fa fa-map mr-3"></i>Location
                 </a>
@@ -105,6 +105,14 @@
                 <a href="/places" class="list-group-item list-group-item-action waves-effect">
                     <i class="fa fa-table mr-3"></i>Places
                 </a>
+            </div>
+
+            <div class="list-group list-group-flush my-5 disabled">
+                <span class="list-group-item waves-effect bg-dark text-white text-center"
+                      id="carconnection">VW Golf</span>
+                <div class="progress bg-dark">
+                    <div class="indeterminate green"></div>
+                </div>
             </div>
 
         </div>
@@ -160,7 +168,8 @@
 
                         <!-- Card header -->
                         <div class="card-header">
-                            Mapview
+                            <span class="mr-3">Mapview</span>
+                            <span class="badge cyan label-car-focused-speed mx-3"></span>
                         </div>
 
                         <!--Card content-->
@@ -262,6 +271,13 @@
             locate = val;
         }
 
+        window.setInterval(function () {
+            var max = $(".indeterminate").parent().width();
+            var width = $(".indeterminate").width();
+            width = width >= max ? 0 : width + 3;
+            $(".indeterminate").width(width);
+        }, 10);
+
         $("#btnlocate").click(function(){
             setLocate(!locate);
         });
@@ -287,15 +303,24 @@
             window.setInterval(function(){
                 $.get("/car/byid?id=" + $("#carfocus").val(), function (car) {
                     if (car != null) {
-                        var_location = new google.maps.LatLng(car.latitude, car.longitude);
-                        var_marker.setPosition(var_location);
-                        var_marker.setTitle(car.title);
                         if (locate) {
+                            var_location = new google.maps.LatLng(car.latitude, car.longitude);
+                            var_marker.setPosition(var_location);
+                            var_marker.setTitle(car.title);
                             var_map.setCenter(var_location);
+                            $(".label-car-focused-speed").html((Math.round(car.speed * 100) / 100) + " km/h");
+                            $(".label-car-focused-speed").show();
+                            $("#carconnection").html(car.title);
+                            $("#carconnection").parent().show();
+                        }
+                        else {
+                            var_marker.setTitle(car.title + " (Eventuell nicht aktuell)");
+                            $("#carconnection").parent().hide();
+                            $(".label-car-focused-speed").hide();
                         }
                     }
                 });
-            }, 1000);
+            }, 500);
         }
 
         // Initialize maps
