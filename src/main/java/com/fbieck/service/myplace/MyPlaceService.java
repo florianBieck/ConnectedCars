@@ -1,6 +1,7 @@
 package com.fbieck.service.myplace;
 
 import com.fbieck.entities.MyPlace;
+import com.fbieck.entities.User;
 import com.fbieck.repositories.MyPlaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,5 +15,15 @@ public class MyPlaceService implements IMyPlaceService{
     @Override
     public Iterable<MyPlace> findAll() {
         return myPlaceRepository.findAll();
+    }
+
+    @Override
+    public MyPlace createMyPlace(User user, Double latitude, Double longitude, String title) {
+        MyPlace myPlace = new MyPlace();
+        myPlace.setUser(user);
+        myPlace.setLatitude(latitude);
+        myPlace.setLongitude(longitude);
+        myPlace.setTitle(title);
+        return myPlaceRepository.save(myPlace);
     }
 }
