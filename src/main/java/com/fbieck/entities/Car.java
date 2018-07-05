@@ -34,6 +34,30 @@ public class Car {
     @JoinColumn(name = "iduser")
     private User user;
 
+    @Column(name = "direction")
+    private Integer direction;
+
+    @Column(name = "revolutions")
+    private Double revolutions;
+
+    @Column(name = "oiltemp")
+    private Float oiltemp;
+
+    @Column(name = "watertemp")
+    private Float watertemp;
+
+    @Column(name = "consumption")
+    private Float consumption;
+
+    @Column(name = "consumptionmean")
+    private Float consumptionmean;
+
+    @Column(name = "speedmean")
+    private Float speedmean;
+
+    @Column(name = "fuel")
+    private Float fuel;
+
     public Integer getId() {
         return id;
     }
@@ -96,5 +120,69 @@ public class Car {
 
     public void setModel(Model model) {
         this.model = model;
+    }
+
+    public Integer getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Integer direction) {
+        this.direction = direction;
+    }
+
+    public Double getRevolutions() {
+        return revolutions;
+    }
+
+    public void setRevolutions(Double revolutions) {
+        this.revolutions = revolutions;
+    }
+
+    public Float getOiltemp() {
+        return oiltemp;
+    }
+
+    public void setOiltemp(Float oiltemp) {
+        this.oiltemp = oiltemp;
+    }
+
+    public Float getWatertemp() {
+        return watertemp;
+    }
+
+    public void setWatertemp(Float watertemp) {
+        this.watertemp = watertemp;
+    }
+
+    public Float getConsumption() {
+        return consumption;
+    }
+
+    public void setConsumption(Float consumption) {
+        this.consumption = consumption;
+    }
+
+    public Float getConsumptionmean() {
+        return consumptionmean;
+    }
+
+    public void setConsumptionmean(Float consumptionmean) {
+        this.consumptionmean = consumptionmean;
+    }
+
+    public Float getSpeedmean() {
+        return speedmean;
+    }
+
+    public void setSpeedmean(Float speedmean) {
+        this.speedmean = speedmean;
+    }
+
+    public Float getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(Float fuel) {
+        this.fuel = fuel;
     }
 }

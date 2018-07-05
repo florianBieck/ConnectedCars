@@ -18,6 +18,11 @@ public class MyPlaceService implements IMyPlaceService{
     }
 
     @Override
+    public Iterable<MyPlace> findAllByUser(User user) {
+        return myPlaceRepository.findAllByUser(user);
+    }
+
+    @Override
     public MyPlace createMyPlace(User user, Double latitude, Double longitude, String title) {
         MyPlace myPlace = new MyPlace();
         myPlace.setUser(user);

@@ -39,7 +39,7 @@ public class CarService implements ICarService {
             CarQuote carQuote = new CarQuote();
             carQuote.setCar(car);
             int all = myRouteService.countAllByUser(user);
-            int count = myRouteService.countAllByCar(car);
+            int count = 10;
             float percentage = all > 0 ? count/all : 0;
             System.out.println(all+" "+count+" "+percentage+" "+user.getEmail()+" "+car.getTitle());
             carQuote.setPercentage(percentage);

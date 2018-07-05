@@ -6,12 +6,12 @@ import com.fbieck.entities.User;
 import com.fbieck.service.myplace.IMyPlaceService;
 import com.fbieck.service.myroute.IMyRouteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Date;
 
 @RestController
 public class MyRouteController {
@@ -38,25 +38,34 @@ public class MyRouteController {
         return null;
     }
 
-    @RequestMapping(value = "/route/create", params = {"startlat, startlong, starttitle, endlat, endlong, endtitle, title"})
+    @RequestMapping(value = "/route/create", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     private MyRoute create(
-            @RequestParam(value = "startlat") Double startlat,
-            @RequestParam(value = "startlong") Double startlong,
-            @RequestParam(value = "starttitle") String starttitle,
-            @RequestParam(value = "endlat") Double endlat,
-            @RequestParam(value = "endlong") Double endlong,
-            @RequestParam(value = "endtitle") String endtitle,
-            @RequestParam(value = "title") String title
+            @RequestBody MultiValueMap<String, String> formData
     ) {
         if (SecurityContextHolder.getContext().getAuthentication() != null
-                && SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
+                && SecurityContextHolder.getContext().getAuthentication().isAuthenticated()
+                && formData.containsKey("startlat")
+                && formData.containsKey("startlong")
+                && formData.containsKey("starttitle")
+                && formData.containsKey("endlat")
+                && formData.containsKey("endlong")
+                && formData.containsKey("endtitle")
+                && formData.containsKey("title")
+                ) {
             User user = ((FFUserPrincipal) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser();
             return myRouteService.createMyRoute(
                     user,
-                    myPlaceService.createMyPlace(user, startlat, startlong, starttitle),
-                    myPlaceService.createMyPlace(user, endlat, endlong, endtitle),
-                    title,
-                    new Date()
+                    myPlaceService.createMyPlace(user,
+                            Double.parseDouble(formData.getFirst("startlat")),
+                            Double.parseDouble(formData.getFirst("startlong")),
+                            formData.getFirst("starttitle")
+                    ),
+                    myPlaceService.createMyPlace(user,
+                            Double.parseDouble(formData.getFirst("endlat")),
+                            Double.parseDouble(formData.getFirst("endlong")),
+                            formData.getFirst("endtitle")
+                    ),
+                    formData.getFirst("title")
             );
         }
         return null;

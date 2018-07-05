@@ -7,5 +7,7 @@ public interface IMyPlaceService {
 
     Iterable<MyPlace> findAll();
 
+    Iterable<MyPlace> findAllByUser(User user);
+
     MyPlace createMyPlace(User user, Double latitude, Double longitude, String title);
 }

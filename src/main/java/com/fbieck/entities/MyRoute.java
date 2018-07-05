@@ -1,7 +1,6 @@
 package com.fbieck.entities;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 public class MyRoute {
@@ -15,10 +14,6 @@ public class MyRoute {
     @JoinColumn(name = "iduser")
     private User user;
 
-    @OneToOne
-    @JoinColumn(name = "idcar")
-    private Car car;
-
     @Column(name = "title")
     private String title;
 
@@ -29,10 +24,6 @@ public class MyRoute {
     @OneToOne
     @JoinColumn(name = "end")
     private MyPlace end;
-
-    @Column(name = "timestamp")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date timestamp;
 
     public Integer getId() {
         return id;
@@ -74,19 +65,4 @@ public class MyRoute {
         this.end = end;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public Car getCar() {
-        return car;
-    }
-
-    public void setCar(Car car) {
-        this.car = car;
-    }
 }

@@ -15,7 +15,7 @@ public class GeolocationProcessor implements ItemProcessor<Car, Car> {
     @Override
     public Car process(Car car) throws Exception {
         double lat2 = car.getLatitude() + ThreadLocalRandom.current().nextDouble(-0.0001, 0.0001);
-        double long2 = car.getLatitude() + ThreadLocalRandom.current().nextDouble(-0.0001, 0.0001);
+        double long2 = car.getLongitude() + ThreadLocalRandom.current().nextDouble(-0.0001, 0.0001);
         car.setSpeed(GeolocationUtil.getDistance(car.getLatitude(), car.getLongitude(), lat2, long2) * 3.6);
         /*logger.info("Processing Geolocation ("+car.getTitle()+" ["+car.getId()+"]): "+car.getLatitude()+":"+car.getLongitude()+" "
             +lat2+":"+long2+" -> "+car.getSpeed());*/
