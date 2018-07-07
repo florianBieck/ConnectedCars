@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
-public class GeolocationReader implements ItemReader<Car> {
+public class CarReader implements ItemReader<Car> {
 
     @Autowired
     private ICarService carService;

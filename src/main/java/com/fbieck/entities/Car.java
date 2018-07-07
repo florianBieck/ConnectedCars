@@ -3,6 +3,7 @@ package com.fbieck.entities;
 import com.fbieck.entities.carmodel.Model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Car {
@@ -20,6 +21,10 @@ public class Car {
     @Column(name = "latitude")
     private Double latitude;
 
+    @Column(name = "locationtimestamp")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date timestamp;
+
     @Column(name = "mileage")
     private Double mileage;
 
@@ -35,7 +40,7 @@ public class Car {
     private User user;
 
     @Column(name = "direction")
-    private Integer direction;
+    private Float direction;
 
     @Column(name = "revolutions")
     private Double revolutions;
@@ -122,11 +127,11 @@ public class Car {
         this.model = model;
     }
 
-    public Integer getDirection() {
+    public Float getDirection() {
         return direction;
     }
 
-    public void setDirection(Integer direction) {
+    public void setDirection(Float direction) {
         this.direction = direction;
     }
 
@@ -184,5 +189,13 @@ public class Car {
 
     public void setFuel(Float fuel) {
         this.fuel = fuel;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class GeolocationWriter implements ItemWriter<Car> {
+public class CarWriter implements ItemWriter<Car> {
 
     @Autowired
     private ICarService carService;

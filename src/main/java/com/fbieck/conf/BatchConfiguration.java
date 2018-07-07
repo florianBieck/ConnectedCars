@@ -1,8 +1,8 @@
 package com.fbieck.conf;
 
+import com.fbieck.batch.CarReader;
+import com.fbieck.batch.CarWriter;
 import com.fbieck.batch.GeolocationProcessor;
-import com.fbieck.batch.GeolocationReader;
-import com.fbieck.batch.GeolocationWriter;
 import com.fbieck.entities.Car;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -14,8 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.sql.DataSource;
-
 @Configuration
 @EnableBatchProcessing
 public class BatchConfiguration {
@@ -26,40 +24,47 @@ public class BatchConfiguration {
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
-    @Autowired
-    private DataSource dataSource;
-
     @Bean
     public GeolocationProcessor geolocationProcessor() {
         return new GeolocationProcessor();
     }
 
     @Bean
-    public GeolocationReader geolocationReader() {
-        return new GeolocationReader();
+    public CarReader carReader() {
+        return new CarReader();
     }
 
     @Bean
-    public GeolocationWriter geolocationWriter() {
-        return new GeolocationWriter();
+    public CarWriter carWriter() {
+        return new CarWriter();
     }
 
     @Bean
-    public Job importUserJob(Step step1) {
+    public Job importUserJob() {
         return jobBuilderFactory.get("importUserJob")
                 .incrementer(new RunIdIncrementer())
-                .flow(step1)
-                .end()
+                .start(geolocation())
+                .next(tankfuel())
                 .build();
     }
 
     @Bean
-    public Step step() {
-        return stepBuilderFactory.get("step1")
+    public Step geolocation() {
+        return stepBuilderFactory.get("geolocation")
                 .<Car, Car>chunk(10)
-                .reader(geolocationReader())
+                .reader(carReader())
                 .processor(geolocationProcessor())
-                .writer(geolocationWriter())
+                .writer(carWriter())
+                .build();
+    }
+
+    @Bean
+    public Step tankfuel() {
+        return stepBuilderFactory.get("tankfuel")
+                .<Car, Car>chunk(10)
+                .reader(carReader())
+                .processor(geolocationProcessor())
+                .writer(carWriter())
                 .build();
     }
 }
