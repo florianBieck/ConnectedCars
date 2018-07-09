@@ -61,7 +61,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect" href="#">Music</a>
+                            <a class="nav-link waves-effect" href="#">Media</a>
                         </li>
                     </ul>
 
@@ -144,12 +144,7 @@
                         <button type="button" class="btn btn-primary btn-sm my-0 p" id="btnlocate">
                             <i class="fa fa-map-marker"></i>
                         </button>
-                        <!-- Default input -->
-                        <input type="search" placeholder="Auf der Karte suchen" aria-label="Search" class="form-control">
-                        <button class="btn btn-primary btn-sm my-0 p" type="submit">
-                            <i class="fa fa-search"></i>
-                        </button>
-
+                        <span><i class="fa fa-thermometer car-signalstrength"></i></span>
                     </form>
 
                 </div>
@@ -246,6 +241,13 @@
                 $(".select-car").hide();
             }
         });
+
+        window.setInterval(function () {
+            $.get("/car/byid?id=" + $(".select-car").val(), function (data) {
+                var signalstrength = data.signalstrength == 0 ? "empty" : data.signalstrength;
+                $(".car-signalstrength").removeClass().addClass("car-signalstrength fa fa-thermometer-" + signalstrength);
+            });
+        }, 500);
     </script>
 
     <!-- Charts -->

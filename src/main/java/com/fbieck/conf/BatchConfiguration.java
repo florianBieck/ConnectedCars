@@ -3,6 +3,7 @@ package com.fbieck.conf;
 import com.fbieck.batch.CarReader;
 import com.fbieck.batch.CarWriter;
 import com.fbieck.batch.GeolocationProcessor;
+import com.fbieck.batch.SignalstrengthProcessor;
 import com.fbieck.entities.Car;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -30,6 +31,11 @@ public class BatchConfiguration {
     }
 
     @Bean
+    public SignalstrengthProcessor signalProcessor() {
+        return new SignalstrengthProcessor();
+    }
+
+    @Bean
     public CarReader carReader() {
         return new CarReader();
     }
@@ -43,8 +49,9 @@ public class BatchConfiguration {
     public Job importUserJob() {
         return jobBuilderFactory.get("importUserJob")
                 .incrementer(new RunIdIncrementer())
-                .start(geolocation())
+                .start(signalstrength())
                 .next(tankfuel())
+                .next(geolocation())
                 .build();
     }
 
@@ -64,6 +71,16 @@ public class BatchConfiguration {
                 .<Car, Car>chunk(10)
                 .reader(carReader())
                 .processor(geolocationProcessor())
+                .writer(carWriter())
+                .build();
+    }
+
+    @Bean
+    public Step signalstrength() {
+        return stepBuilderFactory.get("signalstrength")
+                .<Car, Car>chunk(10)
+                .reader(carReader())
+                .processor(signalProcessor())
                 .writer(carWriter())
                 .build();
     }

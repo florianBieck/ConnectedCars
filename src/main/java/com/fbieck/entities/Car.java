@@ -63,6 +63,9 @@ public class Car {
     @Column(name = "fuel")
     private Float fuel;
 
+    @Column(name = "signalstrength")
+    private Integer signalstrength;
+
     public Integer getId() {
         return id;
     }
@@ -197,5 +200,13 @@ public class Car {
 
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public Integer getSignalstrength() {
+        return signalstrength;
+    }
+
+    public void setSignalstrength(Integer signalstrength) {
+        this.signalstrength = signalstrength;
     }
 }
