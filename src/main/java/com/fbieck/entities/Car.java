@@ -61,7 +61,7 @@ public class Car {
     private Float speedmean;
 
     @Column(name = "fuel")
-    private Float fuel;
+    private Integer fuel;
 
     @Column(name = "signalstrength")
     private Integer signalstrength;
@@ -186,11 +186,11 @@ public class Car {
         this.speedmean = speedmean;
     }
 
-    public Float getFuel() {
+    public Integer getFuel() {
         return fuel;
     }
 
-    public void setFuel(Float fuel) {
+    public void setFuel(Integer fuel) {
         this.fuel = fuel;
     }
 

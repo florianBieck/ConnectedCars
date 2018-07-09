@@ -316,19 +316,19 @@
                 if (data != null && data.length > 0) {
                     output += "<table class='table'>" +
                         "<thead class='thead-dark'>" +
-                        "<th>Carname</th>" +
-                        "<th>Fahrtdistanz</th>" +
-                        "<th>Fahrtzeit</th>" +
-                        "<th>Erstellt am</th>" +
+                        "<th>Titel</th>" +
+                        "<th>Modell</th>" +
+                        "<th>Leistung</th>" +
+                        "<th>Kilometerstand</th>" +
                         "</thead>" +
                         "<tbody>";
                     for (i in data) {
                         var car = data[i];
                         output += "<tr>";
                         output += "<td>" + car.title + "</td>";
-                        output += "<td>" + "-" + "</td>";
-                        output += "<td>" + "-" + "</td>";
-                        output += "<td>" + "-" + "</td>";
+                        output += "<td>" + car.model.title + "</td>";
+                        output += "<td>" + car.model.motor.kilowatt + "kw</td>";
+                        output += "<td id='mileage" + car.id + "'>" + Math.round(car.mileage * 100) / 100 + "km</td>";
                     }
                     output += "</tbody></table>";
                 }
@@ -338,6 +338,15 @@
                 $("#tablecarscard").html(output);
             });
         }
+
+        window.setInterval(function () {
+            $.get("/car/bysession", function (data) {
+                for (i in data) {
+                    var car = data[i];
+                    $(("#mileage" + car.id)).html(Math.round(car.mileage * 100) / 100 + "km");
+                }
+            });
+        }, 500);
     </script>
 
     <!-- Charts -->

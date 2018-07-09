@@ -246,6 +246,7 @@
             $.get("/car/byid?id=" + $(".select-car").val(), function (data) {
                 var signalstrength = data.signalstrength == 0 ? "empty" : data.signalstrength;
                 $(".car-signalstrength").removeClass().addClass("car-signalstrength fa fa-thermometer-" + signalstrength);
+                console.log(data.fuel);
             });
         }, 500);
     </script>

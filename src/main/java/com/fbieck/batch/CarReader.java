@@ -2,30 +2,40 @@ package com.fbieck.batch;
 
 import com.fbieck.entities.Car;
 import com.fbieck.service.car.ICarService;
-import org.springframework.batch.item.ItemReader;
-import org.springframework.batch.item.NonTransientResourceException;
-import org.springframework.batch.item.ParseException;
-import org.springframework.batch.item.UnexpectedInputException;
+import org.springframework.batch.item.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class CarReader implements ItemReader<Car> {
+@Component
+public class CarReader implements ItemReader<Car>, ItemStream {
 
     @Autowired
     private ICarService carService;
 
-    private int counter = 0;
+    private List<Car> cars;
 
     @Override
     public Car read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
-        ArrayList<Car> cars = (ArrayList) carService.findAll();
-        counter = counter >= cars.size() - 1 ? 0 : counter;
-        if (cars.size() == 0) {
-            return null;
+        if (!cars.isEmpty()) {
+            return cars.remove(0);
         }
-        Car output = cars.get(counter);
-        counter++;
-        return output;
+        return null;
+    }
+
+    @Override
+    public void open(ExecutionContext executionContext) throws ItemStreamException {
+        cars = (List<Car>) carService.findAll();
+    }
+
+    @Override
+    public void update(ExecutionContext executionContext) throws ItemStreamException {
+
+    }
+
+    @Override
+    public void close() throws ItemStreamException {
+        cars.clear();
     }
 }
