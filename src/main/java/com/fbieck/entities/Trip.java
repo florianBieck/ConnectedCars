@@ -12,6 +12,10 @@ public class Trip {
     private Integer id;
 
     @OneToOne
+    @JoinColumn(name = "iduser")
+    private User user;
+
+    @OneToOne
     @JoinColumn(name = "idroute")
     private MyRoute myRoute;
 
@@ -75,5 +79,13 @@ public class Trip {
 
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

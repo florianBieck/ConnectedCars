@@ -1,6 +1,7 @@
 package com.fbieck.service.trip;
 
 import com.fbieck.entities.Trip;
+import com.fbieck.entities.User;
 import com.fbieck.repositories.TripRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,5 +15,10 @@ public class TripService implements ITripService {
     @Override
     public Iterable<Trip> findAll() {
         return tripRepository.findAll();
+    }
+
+    @Override
+    public Iterable<Trip> findAllByUser(User user) {
+        return tripRepository.findAllByUser(user);
     }
 }

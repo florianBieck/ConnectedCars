@@ -16,4 +16,9 @@ public class TripController {
     private Iterable<Trip> findAll() {
         return tripService.findAll();
     }
+
+    @RequestMapping(value = "/trip/bysession")
+    private Iterable<Trip> findAllByUser() {
+        return tripService.findAll();
+    }
 }
