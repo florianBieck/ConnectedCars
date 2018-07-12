@@ -26,9 +26,6 @@ public class Trip {
     @Column(name = "duration")
     private Double duration;
 
-    @Column(name = "routelength")
-    private Double routelength;
-
     @Column(name = "timestamp")
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
@@ -63,14 +60,6 @@ public class Trip {
 
     public void setDuration(Double duration) {
         this.duration = duration;
-    }
-
-    public Double getRoutelength() {
-        return routelength;
-    }
-
-    public void setRoutelength(Double routelength) {
-        this.routelength = routelength;
     }
 
     public Date getTimestamp() {

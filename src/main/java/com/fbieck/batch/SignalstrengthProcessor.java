@@ -11,9 +11,8 @@ public class SignalstrengthProcessor implements ItemProcessor<Car, Car> {
 
     @Override
     public Car process(Car car) throws Exception {
-        int p_change = ThreadLocalRandom.current().nextInt(0, 5000);
+        int p_change = ThreadLocalRandom.current().nextInt(0, 100);
         if (p_change == 0) {
-
             int p_newsignal = ThreadLocalRandom.current().nextInt(0, 1000);
             if (p_newsignal >= 0 && p_newsignal < 50) {
                 car.setSignalstrength(0);

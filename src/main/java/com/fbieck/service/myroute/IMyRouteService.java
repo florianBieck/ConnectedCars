@@ -10,6 +10,8 @@ public interface IMyRouteService {
 
     Iterable<MyRoute> findAllByUser(User user);
 
+    MyRoute findById(Integer id);
+
     Integer countAllByUser(User user);
 
     MyRoute createMyRoute(User user, MyPlace start, MyPlace end, String title);
